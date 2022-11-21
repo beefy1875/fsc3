@@ -23,13 +23,15 @@ const Course = ( {course} ) => {
     total += element.exercises
   });
 
-  console.log(total)
+  const res = course.parts.reduce((total, part) => {
+    return total + part.exercises
+  }, 0)
 
   return (
     <div>
       <Header name={name} />
       <Content parts={parts} />
-      <p>total of {total} exercises</p>
+      <p>total of {res} exercises</p>
     </div>
   )
 }
